@@ -13,18 +13,15 @@
 			{
 				return True;
 			}else{
-				return False;
+				throw new Exception("The array contained values we were not expecting!");
 			}
 		}
 
 		//RETURNS THE MEAN OF AN ARRAY
 		public function getMean(array $list){
 			if(count($list)==0)
-				return "NULL";
+				return NULL;
 			$isNumeric = self::checkNumeric($list);
-			if(!$isNumeric){
-				return "The array contained values we were not expecting!";
-			}
 			$total = 0;
 			foreach ($list as $number) {
 			   $total += $number;
@@ -36,11 +33,8 @@
 		//RETURNS THE MEDIAN OF AN ARRAY
 		public function getMedian(array $list){
 			if(count($list)==0)
-				return "NULL";
+				return NULL;
 			$isNumeric = self::checkNumeric($list);
-			if(!$isNumeric){
-				return "The array contained values we were not expecting!";
-			}
 			//LETS MAKE SURE THAT OUR LIST OF NUMBERS IS LONGER THAN 1
 			if(count($list)>1){
 			    sort($list, SORT_NUMERIC);
@@ -61,11 +55,8 @@
 		//RETURNS THE MODE OF AN ARRAY
 		public function getMode(array $list){
 			if(count($list)==0)
-				return "NULL";
+				return NULL;
 			$isNumeric = self::checkNumeric($list);
-			if(!$isNumeric){
-				return "The array contained values we were not expecting!";
-			}
 			//LETS MAKE SURE THAT OUR LIST OF NUMBERS IS LONGER THAN 1
 			if(count($list)>1){	
 				//CAST THE NUMBERS TO A STRING REPRESENTATION SO WE CAN USE ARRAY_COUNT_VALUES IN CASE OF DOUBLES OR FLOATS
@@ -90,7 +81,7 @@
 				}
 				//IF OUR CURRENT HOLDER IS STILL EMPTY RETURN NULL
 				if(!isset($currentMode)){
-					$currentMode = "NULL";
+					$currentMode = NULL;
 				}
 				return($currentMode);
 			//OTHERWISE WE JUST RETURN WHAT WAS GIVEN
